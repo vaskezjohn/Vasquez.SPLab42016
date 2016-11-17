@@ -1,0 +1,27 @@
+<div class="container">
+		<div class="page-header">
+			<center> <h1>{{DatoTest}}</h1>   </center>     
+		</div>
+		<div class="CajaInicio animated bounceInRight container">
+			<h1>Ingrese los datos del producto </h1>
+
+			<form  class="form-signin"  enctype="multipart/form-data" >
+				<label for="tipo">NOMBRE</label>
+				<input  class="form-control" type="text" id="tipo" ng-model="producto.nombre" placeholder="ingrese nombre" value="" /> <span id="lbltipo" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
+
+				<label for="ingredientes">PORCENTAJE</label>
+				<input  class="form-control" type="text" id="ingredientes" ng-model="producto.porcentaje" placeholder="ingrese porcentaje" value=""/>
+
+			<br>
+			<a class="btn btn-info " ng-if="visible" name="guardar" ng-click="Insertar()" ><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</a> 
+
+			<a class="btn btn-info " ng-if="!visible" name="guardar" ng-click="GuardarDatos()" ><span class="glyphicon glyphicon-save">&nbsp;</span>Modificar</a> 
+
+
+					
+				<input type="hidden" value="" id="idParaModificar" name="agregar" ng-model="producto.id"/>
+				<input type="hidden" value="" id="hdnAgregar" name="agregar" />
+				</div>
+
+			</form>
+	</div>

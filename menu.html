@@ -1,0 +1,38 @@
+﻿<div class="container">
+		<div class="page-header">
+			<center><h1>{{DatoTest}}</h1> </center>     
+		</div>
+	  	 
+		           
+					<div class="CajaInicio animated bounceInRight">
+							<h1>Menu</h1>
+						
+							<form id="FormIngreso">
+
+
+									    <a ui-sref="alta" ng-if="usuario.tipo!='comprador'" class="list-group-item  list-group-item list-group-item-info">
+									      <h4 class="list-group-item-heading">Alta de Productos</h4>
+									    </a>
+										
+										<a ui-sref="grilla" class="list-group-item  list-group-item list-group-item-info">
+									      <h4 class="list-group-item-heading">Grilla de Productos</h4>
+									    </a>							
+					
+									    <button ng-if="usuario.tipo=='administrador'" ng-click="CargarFormulario()" class="list-group-item  list-group-item list-group-item-info">
+						                <h4 class="list-group-item-heading">Alta de Usuarios</h4>
+						                </button>
+																
+										<button ng-if="usuario.tipo=='administrador'" ui-sref="grillaUser" class="list-group-item  list-group-item list-group-item-info">
+									      <h4 class="list-group-item-heading">Grilla de Usuarios</h4>
+									    </button>
+										
+										<button ng-click="Logout()" class="list-group-item  list-group-item list-group-item-info">
+									      <h4 class="list-group-item-heading">Cerrar Sesión</h4>
+									    </button>
+									
+									  </div>
+									
+							</form>
+						</div>
+						<!--abm-directiva></abm-directiva-->
+		</div>

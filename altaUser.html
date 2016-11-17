@@ -1,0 +1,63 @@
+<div class="container">
+		<div class="page-header">
+			<center> <h1>{{titulo}}</h1>   </center>     
+		</div>
+		<div class="CajaInicio animated bounceInRight container">
+
+			<form class="form-signin"  enctype="multipart/form-data" >
+				
+				<label for="nombre">NOMBRE</label>
+				<input class="form-control" id="nombre" type="text" name="nombre" ng-model="usuario.nombre" placeholder="Ingrese nombre" value="" />
+
+				<div ng-if="tipo=='admin' || titulo=='Nuevo Usuario'">
+				<label for="mail">CORREO</label>	
+				<input  class="form-control" id="mail" type="text" name="mail" ng-model="usuario.correo" placeholder="Ingrese correo electrónico" value="" /></div>
+
+				<div style="color:black" ng-show="titulo=='Modificar Datos'">
+				<input class="form-control" type="checkbox" ng-model="usuario.modificarPass"> Modificar Contraseña</div>
+
+				<div>
+				<label for="pass">CONTRASEÑA</label>
+				<input class="form-control" id="pass" type="password" name="pass" ng-model="usuario.clave" placeholder="Ingrese contraseña" value="" /></div>
+
+				<label for="tipo">TIPO</label>
+				<select  class="form-control" id="tipo" ng-model="usuario.tipo">
+					<option value="comprador">Comprador</option>
+					<option value="vendedor">Vendedor</option>
+				</select>
+
+				<label for="img">CARGAR FOTO</label>
+				<input id="img" ng-show="!uploader.queue[0]" type="file" nv-file-select uploader="uploader"/>
+				<li ng-repeat="item in uploader.queue">
+					<!-- nombre del archivo -->
+					<div style="color:black">Imagen actual</div> <!--span ng-bind="item.file.name"></span--><br/>
+					<!-- imagen del archivo -->
+					<div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
+					<!-- boton upload. Lo puedo usar para carar las fotos o crear
+						mi propia funcion y llamar a uploader.uploadAll() -->
+					<!--  <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+						<span class="glyphicon glyphicon-upload"></span> Upload
+					</button>  -->
+					<!-- boton remove -->
+					<button type="button" class="btn btn-warning btn-xs" ng-click="item.remove()">
+						<span class="glyphicon glyphicon-trash"></span> Cambiar
+					</button>
+				</li>  
+				
+				
+
+				<!--img  ng-src="../fotos/{{persona.foto}}" class="fotoform" id="foto" ng-model="persona.foto"-->
+				<!--p style="  color: black;">*La foto se actualiza al guardar.</p-->
+
+				<br>
+				<center><a class="btn btn-info" ng-if="visible" name="guardar" ng-click="Guardar()" ><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</a></center>
+
+				<center><a class="btn btn-info " ng-if="!visible"  name="guardar" ng-click="Guardar()" ><span class="glyphicon glyphicon-save">&nbsp;</span>Modificar</a></center>
+					
+				<input type="hidden" value="" id="idParaModificar" name="agregar" ng-model="usuario.id"/>
+				<input type="hidden" value="" ng-model="usuario.foto"/>
+				<input type="hidden" value="" id="hdnAgregar" name="agregar" />
+				</div>
+
+			</form>
+	</div>

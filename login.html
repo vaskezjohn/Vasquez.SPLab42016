@@ -1,0 +1,32 @@
+<div class="container">
+		<div class="page-header">
+			<center> <h1>{{DatoTest}}</h1>   </center>     
+		</div>
+		<div class="CajaInicio animated bounceInRight container">
+			<h1> Iniciar Sesión </h1>
+
+
+
+			<form class="form-signin" enctype="multipart/form-data" >
+				<input type="text"  class="form-control" placeholder="Correo de Usuario" id="txtUser" ng-model="correo">
+				<br>
+				<input type="text"  class="form-control" placeholder="Nombre de Usuario" id="txtUser" ng-model="nombre">
+				<br>
+				<input type="password"  class="form-control" placeholder="Contraseña" id="txtPass" ng-model="clave">
+				<br>
+				
+				<a class="btn btn-info " name="guardar" ng-click="Login()" ><span class="glyphicon glyphicon-save">&nbsp;</span>Iniciar Sesión</a>
+				<a class="btn btn-info " name="registrar" ng-click="CargarFormulario()" ><span class="glyphicon glyphicon-plus">&nbsp;</span>Crear Cuenta</a>
+
+				<a class="btn btn-info " name="registrar" ng-click="CargarLogin('admin')" ><span class="glyphicon glyphicon-plus">&nbsp;</span>Administrador</a>
+
+				<a class="btn btn-info " name="registrar" ng-click="CargarLogin('vend')" ><span class="glyphicon glyphicon-plus">&nbsp;</span>Vendedor</a>
+
+				<a class="btn btn-info " name="registrar" ng-click="CargarLogin('comp')" ><span class="glyphicon glyphicon-plus">&nbsp;</span>Comprador</a>
+					
+				<input type="hidden" value="" id="idParaModificar" name="agregar" ng-model="persona.id"/>
+				<input type="hidden" value="" id="hdnAgregar" name="agregar" />
+				</div>
+
+			</form>
+	</div>

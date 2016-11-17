@@ -1,0 +1,50 @@
+<div class="container">
+		<div class="page-header">
+			<center><h1>Listado</h1> </center>     
+		</div>
+	  	 
+					<div class="CajaInicio animated bounceInRight">
+							<h1>Listado de Usuarios</h1>
+								<center><input  class="form-control" type="search" ng-model="buscador" placeholder="Buscar Usuario"><center>
+								
+								<select  class="form-control" ng-model="buscadorTipo">
+									<option value="todos">Todos</option>
+									<option value="administrador">Administrador</option>
+									<option value="comprador">Comprador</option>
+									<option value="vendedor">Vendedor</option>
+								</select>
+								<br>
+								
+								<table class='table table-hover table-responsive' id="listaUsuarios">
+									<thead>
+										<tr>
+											<th>  Foto   </th>				
+											<th>  Nombre     </th>
+											<th>  Correo     </th>
+											<th>  Tipo       </th>
+											<th ng-if="esAdmin">  BORRAR     </th>
+											<th ng-if="esAdmin">  MODIFICAR  </th>
+										</tr> 
+									</thead>
+				
+									<tr ng-repeat="usuario in ListadoUsuarios | filter:{nombre:buscador} | filter:FiltrarUsuarios as resultado">
+
+										<td><img  class='fotoGrilla' ng-src="fotos/{{usuario.foto}}" /></td>
+										<td><abm-directiva texto="usuario.nombre"></abm-directiva></td>
+										<td>{{usuario.correo}}</td>
+										<td>{{usuario.tipo}}</td>
+										<td ng-if="esAdmin"><button class='btn btn-info' name='Borrar' ng-click="Borrar(usuario)">   <span class='glyphicon glyphicon-remove-circle'>&nbsp;</span>Borrar</button></td>
+										
+										<td ng-if="esAdmin"><button class='btn btn-info' name='Modificar' ng-click="CargarModificacion(usuario)"><span class='glyphicon glyphicon-edit'>&nbsp;</span>Modificar</button></td>
+															
+									</tr>
+							
+
+						
+								</table>
+								<div ng-if="resultado.length==0">
+									No hay usuarios con ese critero.
+								</div>
+							</div>
+							
+						</div>
